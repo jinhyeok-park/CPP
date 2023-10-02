@@ -2,7 +2,8 @@ CXX = g++
 NAME = phonebook
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = PhoneBook.cpp\
-		testmain .cpp\
+		testmain.cpp\
+		Contact.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
