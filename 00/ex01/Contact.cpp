@@ -31,3 +31,11 @@ std::string Contact::getLastName () const {
 std::string Contact::getNickName () const {
     return this->mNickName;
 }
+
+std::string Contact::getPhonNumber () const {
+    return this->mPhoneNumber;
+}
+
+std::string Contact::getDarkestSecret () const {
+    return this->mDarkestSecret;
+}

@@ -20,6 +20,8 @@ public:
     std::string getFirstName() const;
     std::string getLastName() const;
     std::string getNickName() const;
+    std::string getPhonNumber() const;
+    std::string getDarkestSecret() const;
 };
 
 #endif

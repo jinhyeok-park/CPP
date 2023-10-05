@@ -11,7 +11,6 @@ std::string PhoneBook::cutLength(std::string input) {
 }
 
 PhoneBook::PhoneBook() {
-    std::cout << "index init 0" << std::endl;
     this->index = 0;
 }
 
@@ -21,27 +20,47 @@ void PhoneBook::addData() {
     Contact     contact;
 
     std::cout << "Enter First Name" << std::endl;
-    std::cin >> input;
-    contact.setFirstName(input);
-    std::cout << "Enter Last Name" << std::endl;
-    std::cin >> input;
-    contact.setLastName(input);
-    std::cout << "Enter NickName" << std::endl;
-    std::cin >> input;
-    contact.setNickName(input);
-    std::cout << "Enter Phone Number" << std::endl;
-    std::cin >> input;
-    contact.setPhoneNumber(input);
-    std::cout << "Enter Darkest Secret" << std::endl;
-    std::cin >> input;
-    contact.setDarkestSecret(input);
+    //std::cin >> input;
+    getline(std::cin, input);
+    for (int i = 0 ; i < 5 ; i++)
+    {
+        if (std::cin.eof()) {
+            return ;
+        }
+        if (i == 0)
+        {
+            contact.setFirstName(input);
+            std::cout << "Enter Last Name" << std::endl;
+            getline(std::cin, input);
+        }
+        else if (i == 1)
+        {
+            contact.setLastName(input);
+            std::cout << "Enter NickName" << std::endl;
+            getline(std::cin, input);
+        }
+        else if (i == 2)
+        {
+            contact.setNickName(input);
+            std::cout << "Enter Phone Number" << std::endl;
+            getline(std::cin, input);
+        }
+        else if (i == 3)
+        {
+            contact.setPhoneNumber(input);
+            std::cout << "Enter Darkest Secret" << std::endl;
+            getline(std::cin, input);
+        }
+        else if (i == 4)
+            contact.setDarkestSecret(input);
+    }
     this->mContacts[this->index % 8] = contact;
     this->index++;
 }
 
 void PhoneBook::searchData() {
 
-    std::string input;
+    int  input;
 
     std::cout << "|";
     std::cout << std::setw(10) << "index" << "|";
@@ -49,7 +68,7 @@ void PhoneBook::searchData() {
     std::cout << std::setw(10) << "Last Name" << "|";
     std::cout << std::setw(10) << "NickName" << "|" << std::endl;
 
-    for (int i = 0 ; i < this->index % 8 ; i ++)
+    for (int i = 0 ; i < (this->index < 8 ? this->index : 8); i ++)
     {
         std::cout << "|";
         std::cout << std::setw(10) << i << "|";
@@ -57,11 +76,38 @@ void PhoneBook::searchData() {
         std::cout << std::setw(10) << this->cutLength(this->mContacts[i].getLastName()) << "|";
         std::cout << std::setw(10) << this->cutLength(this->mContacts[i].getNickName()) << "|" << std::endl;
     }
+    std::cout << "Enter the Index That you want to see!" << std::endl;
     std::cin >> input;
-    if (this->index == 0)
-        std::cout <<"is Empty" << std::endl;
-    else if (std::stoi(input) < this->index % 8 && std::stoi(input) > -1)
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (std::cin.fail())
     {
-        std::cout << "is correct";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Only digit" << std::endl;
+        return ;
+    }
+    if (this->index == 0)
+        std::cout << "Table Is Empty" << std::endl;
+    else if (input < (this->index < 8 ? this->index % 8 : 8) && input > -1)
+    {
+        std::cout << std::left << std::setw(MARGINRIGHT) << "First Name";
+        std:: cout << " : ";
+        std::cout << this->mContacts[(input)].getFirstName() << std::endl;
+        std::cout << std::setw(MARGINRIGHT) << "Last Name";
+        std:: cout << " : ";
+        std::cout << this->mContacts[(input)].getLastName() << std::endl;
+        std::cout << std::setw(MARGINRIGHT) << "Nick Name";
+        std:: cout << " : ";
+        std::cout << this->mContacts[(input)].getNickName() << std::endl;
+        std::cout << std::setw(MARGINRIGHT) << "Phone Number";
+        std:: cout << " : ";
+        std::cout << this->mContacts[(input)].getPhonNumber() << std::endl;
+        std::cout << std::setw(MARGINRIGHT) << "Darkest Secret";
+        std:: cout << " : ";
+        std::cout << this->mContacts[(input)].getDarkestSecret() << std::endl;
+    }
+    else
+    {
+        std::cout << "Out of Index Range!" << std::endl;
     }
 }

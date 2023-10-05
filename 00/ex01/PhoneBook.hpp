@@ -4,6 +4,9 @@
 #include <iostream>
 #include <iomanip>
 #include "Contact.hpp"
+#include <limits>
+
+#define MARGINRIGHT 15
 
 class PhoneBook {
 
@@ -12,7 +15,7 @@ private:
     int     index;
 
 public :
-    PhoneBook(); //contstructer
+    PhoneBook();
 
     std::string cutLength(std::string str);
     void        addData();
