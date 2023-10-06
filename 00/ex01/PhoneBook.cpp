@@ -20,42 +20,60 @@ void PhoneBook::addData() {
     Contact     contact;
 
     std::cout << "Enter First Name" << std::endl;
-    //std::cin >> input;
-    getline(std::cin, input);
+    std::getline(std::cin, input);
     for (int i = 0 ; i < 5 ; i++)
     {
         if (std::cin.eof()) {
             return ;
         }
+        if (this->checkSpace(input))
+        {
+            std::cout << "input value is empty try again" << std::endl;
+            return ;
+        }
+        if (input.empty())
+        {
+            std::cout << "input value is empty try again" << std::endl;
+            return;
+        }
         if (i == 0)
         {
             contact.setFirstName(input);
             std::cout << "Enter Last Name" << std::endl;
-            getline(std::cin, input);
+            std::getline(std::cin, input);
         }
         else if (i == 1)
         {
             contact.setLastName(input);
             std::cout << "Enter NickName" << std::endl;
-            getline(std::cin, input);
+            std::getline(std::cin, input);
         }
         else if (i == 2)
         {
             contact.setNickName(input);
             std::cout << "Enter Phone Number" << std::endl;
-            getline(std::cin, input);
+            std::getline(std::cin, input);
         }
         else if (i == 3)
         {
             contact.setPhoneNumber(input);
             std::cout << "Enter Darkest Secret" << std::endl;
-            getline(std::cin, input);
+            std::getline(std::cin, input);
         }
         else if (i == 4)
             contact.setDarkestSecret(input);
     }
     this->mContacts[this->index % 8] = contact;
     this->index++;
+}
+
+bool PhoneBook::checkSpace(std::string str) {
+    for (size_t i = 0 ; i < str.length() ; i++)
+    {
+        if (!std::isspace(str[i]))
+            return false;
+    }
+    return true;
 }
 
 void PhoneBook::searchData() {

@@ -18,6 +18,7 @@ public :
     PhoneBook();
 
     std::string cutLength(std::string str);
+    bool        checkSpace(std::string str);
     void        addData();
     void        searchData();
 };
