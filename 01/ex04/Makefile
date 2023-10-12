@@ -1,8 +1,9 @@
 CXX = c++
 NAME = replace
-INC = Weapon.hpp
+INC = Replace.hpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp \
+		Replace.cpp
 
 
 OBJ = $(SRC:.cpp=.o)

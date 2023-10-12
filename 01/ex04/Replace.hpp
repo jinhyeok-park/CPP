@@ -14,9 +14,9 @@ private :
 public :
     std::string     ToString(char *str);
 
-    bool    Replace::InputChecker(int ac, char **av);
-    bool    Replace::FileOpener(char **av);
-    bool    Replace::Changer(char **av);
+    bool    InputChecker(int ac, char **av);
+    bool    FileOpener(char **av);
+    void    Changer(char **av);
     Replace(void);
     ~Replace(void);
 };
