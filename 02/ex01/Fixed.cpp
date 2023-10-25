@@ -1,12 +1,10 @@
 #include "Fixed.hpp"
 
-const int    Fixed::mFractionalBitNum = 8;
-
 Fixed::Fixed(void) : mFixedPointNum(0) {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const int input) : mFixedPointNum(std::roundf(input << this->mFractionalBitNum)) {
+Fixed::Fixed(const int input) : mFixedPointNum(input << this->mFractionalBitNum) {
     std::cout << "Int constructor called" << std::endl;
 }
 
@@ -16,7 +14,7 @@ Fixed::Fixed(const float input) : mFixedPointNum(std::roundf(input * (1 << this-
 
 Fixed::Fixed(const Fixed& obj) {
     std::cout << "Copy constructor called" << std::endl;
-    this->mFixedPointNum = obj.getRawBits();
+    *this = obj;
 }
 
 Fixed& Fixed::operator=(const Fixed &obj) {
@@ -47,6 +45,6 @@ int Fixed::getRawBits (void) const {
 
 int Fixed::toInt(void) const {
     int ret;
-    ret = this->toFloat();
+    ret = this->mFixedPointNum >> this->mFractionalBitNum;
     return ret;
 }

@@ -80,32 +80,32 @@ bool Fixed::operator==(const Fixed &obj) {
     return (this->mFixedPointNum == obj.mFixedPointNum);
 }
 
-Fixed operator+(const Fixed &num1, const Fixed &num2) {
+Fixed Fixed::operator+(const Fixed &num) const {
     std::cout << "arithmatic operator called" << std::endl;
-    Fixed ret(num1.toFloat() + num2.toFloat());
+    Fixed ret(this->toFloat() + num.toFloat());
     return ret;
 }
 
-Fixed operator-(const Fixed &num1, const Fixed &num2) {
+Fixed Fixed::operator-(const Fixed &num) const {
     std::cout << "arithmatic operator called" << std::endl;
-    Fixed ret(num1.toFloat() - num2.toFloat());
+    Fixed ret(this->toFloat() - num.toFloat());
     return ret;
 }
 
-Fixed operator*(const Fixed &num1, const Fixed &num2) {
+Fixed Fixed::operator*(const Fixed &num) const {
     std::cout << "arithmatic operator called" << std::endl;
-    Fixed ret(num1.toFloat() * num2.toFloat());
+    Fixed ret(this->toFloat() * num.toFloat());
     return ret;
 }
 
-Fixed operator/(const Fixed &num1, const Fixed &num2) { // if num divied 0 ;
-    if (num1.toFloat() == 0 || num2.toFloat() == 0)
+Fixed Fixed::operator/(const Fixed &num) const { // if num divied 0 ;
+    if (num.toFloat() == 0)
     {
         std::cout << "0 occur check the num again" << std::endl;
         exit(1);
     }
     std::cout << "arithmatic operator called" << std::endl;
-    Fixed ret(num1.toFloat() / num2.toFloat());
+    Fixed ret(this->toFloat() / num.toFloat());
     return ret;
 }
 
@@ -133,7 +133,6 @@ Fixed Fixed::operator--(int) {
 
 
 Fixed &Fixed::min(Fixed &a, Fixed &b) {
-    std::cout << "i calling";
     if (a.mFixedPointNum > b.mFixedPointNum)
         return b;
     else
@@ -148,7 +147,6 @@ const Fixed &Fixed::min( Fixed const &a, Fixed const &b) {
 }
 
 Fixed &Fixed::max(Fixed &a, Fixed &b) {
-    std::cout << "i calling";
     if (a.mFixedPointNum > b.mFixedPointNum)
         return a;
     else

@@ -45,5 +45,6 @@ std::cout << a++ << std::endl;
 std::cout << a << std::endl;
 std::cout << b << std::endl;
 std::cout << Fixed::max( a, static_cast<Fixed>(b)) << std::endl;
+Fixed c(3); Fixed d(0);
 return 0;
 }

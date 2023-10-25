@@ -4,6 +4,10 @@ Point::Point(void) :x(0), y(0) {
     std::cout << "Point class called" << std::endl;
 }
 
+Point::~Point(void){
+    std::cout << "destory Point" << std::endl;
+}
+
 Point::Point(const float x, const float y) :x(x) , y(y) {
 
 }

@@ -1,6 +1,6 @@
 CXX = c++
 NAME = Harlfilter
-INC = Weapon.hpp
+INC = Harl.hpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp \
 		Harl.cpp\

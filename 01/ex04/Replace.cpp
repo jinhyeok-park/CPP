@@ -50,7 +50,7 @@ bool    Replace::FileOpener(char **av) {
     if (!Replace::mInputFile)
         return false;
     outputName = ToString(av[1]) + ".replace";
-    Replace::mOuputFile.open(outputName);
+    Replace::mOuputFile.open(outputName.c_str());
     if (!Replace::mOuputFile)
         return false;
     return true;

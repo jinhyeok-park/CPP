@@ -39,12 +39,13 @@ public :
     Fixed operator++(int);
     Fixed &operator--(void);
     Fixed operator--(int);
+
+    Fixed operator+(const Fixed &num) const;
+    Fixed operator-(const Fixed &num) const;
+    Fixed operator*(const Fixed &num) const;
+    Fixed operator/(const Fixed &num) const;
 };
 
 std::ostream& operator<<(std::ostream &out, const Fixed &other);
-Fixed operator+(const Fixed &num1, const Fixed &num2);
-Fixed operator-(const Fixed &num1, const Fixed &num2);
-Fixed operator*(const Fixed &num1, const Fixed &num2);
-Fixed operator/(const Fixed &num1, const Fixed &num2);
 
 #endif

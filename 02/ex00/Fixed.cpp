@@ -1,19 +1,19 @@
 #include "Fixed.hpp"
 
-const int    Fixed::mFractionalBitNum = 8;
-
 Fixed::Fixed(void) : mFixedPointNum(0) {
     std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& obj) {
     std::cout << "Copy constructor called" << std::endl;
-    this->mFixedPointNum = obj.getRawBits();
+    *this = obj;
 }
 
 Fixed& Fixed::operator=(const Fixed &obj) {
     std::cout << "Copy assignment operator called" << std::endl;
-    this-> mFixedPointNum = obj.getRawBits();
+    if (this == &obj)
+        return *this;
+    this->mFixedPointNum = obj.getRawBits();
     return *this;
 }
 

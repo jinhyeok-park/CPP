@@ -1,6 +1,6 @@
 CXX = c++
 NAME = Harl
-INC = Weapon.hpp
+INC = Harl.hpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp \
 		Harl.cpp\
