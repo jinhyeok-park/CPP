@@ -1,5 +1,9 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(void) : mName("default"), mHitPoints(10), mEnergyPoints(10), mAttackDamage(0) {
+    std::cout << "default constructor" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name) : mName(name), mHitPoints(10), mEnergyPoints(10), mAttackDamage(0) {
     std::cout << "default constructor" << std::endl;
 }
