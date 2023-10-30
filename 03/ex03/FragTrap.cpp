@@ -4,7 +4,7 @@ FragTrap::FragTrap(void) {
     std::cout << "FragTrap defulat constructor" << std::endl;
     this->mName = "FragTrap defulat";
     this->mHitPoints = 100;
-    this->mEnergyPoints = 100;
+    //this->mEnergyPoints = 100;
     this-> mAttackDamage = 30;
 }
 
@@ -12,7 +12,7 @@ FragTrap::FragTrap(std::string name) {
     std::cout << "FragTrap name constructor" << std::endl;
     this->mName = name;
     this->mHitPoints = 100;
-    this->mEnergyPoints = 100;
+    //this->mEnergyPoints = 100;
     this->mAttackDamage = 30;
 }
 

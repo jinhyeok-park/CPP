@@ -3,17 +3,17 @@
 ScavTrap::ScavTrap(void) {
     std::cout << "ScavTrap default constructor called" << std::endl;
     this->mName = "scav Default";
-    this->mHitPoints = 100;
+    // this->mHitPoints = 100;
     this->mEnergyPoints = 50;
-    this->mAttackDamage = 20;
+    // this->mAttackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const std::string &name) {
     std::cout << "ScavTrap default constructor called" << std::endl;
     this->mName = name;
-    this->mHitPoints = 100;
+    // this->mHitPoints = 100;
     this->mEnergyPoints = 50;
-    this->mAttackDamage = 20;
+    // this->mAttackDamage = 20;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &input) : ClapTrap(input) {
@@ -48,7 +48,7 @@ void ScavTrap::guardGate(void){
 void    ScavTrap::attack(std::string target) {
     if (this->mEnergyPoints && this->mHitPoints > 0)
     {
-        std::cout << "FragTrap ";
+        std::cout << "ScavTrap ";
         std::cout << this->mName << " attacks " << target;
         std::cout << ", causing " << this->mAttackDamage << " points of damage!" << std::endl;
         this->mEnergyPoints--;
