@@ -47,6 +47,7 @@ std::string ClapTrap::getName(void) {
 void    ClapTrap::attack(const std::string &target) {
     if (this->mEnergyPoints && this->mHitPoints > 0)
     {
+        std::cout << "ClapTrap ";
         std::cout << this->mName << " attacks " << target;
         std::cout << ", causing " << this->mAttackDamage << " points of damage!" << std::endl;
         this->mEnergyPoints--;
