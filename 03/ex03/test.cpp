@@ -11,10 +11,16 @@ class Base {
 };
 
 class A : virtual public Base {
+    private :
+    int a;
     public :
     A(void) {
         this->a = 2;
+        Base::a = 4;
     };
+    int getA() {
+        return this->a;
+    }
 };
 
 class B : virtual public Base {
@@ -26,11 +32,9 @@ class B : virtual public Base {
 
 class C : public B, public A {
     public :
-    C(void) {
-        std::cout << A::a << std::endl;
-        std::cout << B::a << std::endl;
-        std::cout << this->a;
-        std::cout << this->b;
+    C(void): B(), A(){
+        Base::a = getA();
+        std::cout << Base::a;
     }
 };
 

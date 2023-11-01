@@ -36,11 +36,8 @@ FragTrap::~FragTrap(void) {
 }
 
 void    FragTrap::highFivesGuys(void) {
-    if (this->mHitPoints > 0 && this->mEnergyPoints)
-    {
+    if (this->mHitPoints > 0)
         std::cout << "high five guys!" << std::endl;
-        this->mEnergyPoints--;
-    }
-    else
-        std::cout << "not enough energy" << std::endl;
+    else 
+        std::cout << "aleady die.." << std::endl;
 }

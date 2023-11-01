@@ -3,49 +3,49 @@
 ScavTrap::ScavTrap(void) {
     std::cout << "ScavTrap default constructor called" << std::endl;
     this->mName = "scav Default";
-    // this->mHitPoints = 100;
+    this->mHitPoints = 100;
     this->mEnergyPoints = 50;
-    // this->mAttackDamage = 20;
+    this->mEnergyPoint = this->mEnergyPoints;
+    this->mAttackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const std::string &name) {
     std::cout << "ScavTrap default constructor called" << std::endl;
     this->mName = name;
-    // this->mHitPoints = 100;
+    this->mHitPoints = 100;
     this->mEnergyPoints = 50;
-    // this->mAttackDamage = 20;
+    this->mEnergyPoint = this->mEnergyPoints;
+    this->mAttackDamage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &input) : ClapTrap(input) {
+ScavTrap::ScavTrap(const ScavTrap &input) : ClapTrap(input) {
     std::cout << "ScavTrap copy constructor"<< std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(ScavTrap const &input) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &input) {
     if (this != &input)
     {
         this->mName = input.mName;
         this->mAttackDamage = input.mAttackDamage;
         this->mEnergyPoints = input.mEnergyPoints;
+        ScavTrap::mEnergyPoint = input.mEnergyPoint;
         this->mHitPoints = input.mHitPoints;
     }
     return *this;
 }
 
 ScavTrap::~ScavTrap(void) {
-    std::cout << "scavtrap destroyer called" << std::endl;
+    std::cout << "ScavTrap destroyer called" << std::endl;
 }
 
 void ScavTrap::guardGate(void){
-    if  (this->mEnergyPoints && this->mHitPoints > 0)
-    {
+    if (this->mHitPoints > 0)
         std::cout << this->mName << " is now in Gate keeper mode." << std::endl;
-        this->mEnergyPoints--;
-    }
-    else
-        std::cout << "not enough energy" << std::endl;
+    else 
+        std::cout << "aleady die.." << std::endl;
 }
 
-void    ScavTrap::attack(std::string target) {
+void    ScavTrap::attack(const std::string &target) {
     if (this->mEnergyPoints && this->mHitPoints > 0)
     {
         std::cout << "ScavTrap ";
@@ -57,4 +57,8 @@ void    ScavTrap::attack(std::string target) {
         std::cout << "not enough energy!" << std::endl;
     else if (this->mHitPoints <= 0)
         std::cout << "not enough hitpoints" << std::endl;
+}
+
+int ScavTrap::getEnergyPoint(void) {
+    return ScavTrap::mEnergyPoint; 
 }

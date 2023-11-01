@@ -22,8 +22,8 @@ public :
     ClapTrap(void);
     ClapTrap(std::string name);
     ~ClapTrap(void);
-    ClapTrap(ClapTrap const &in);
-    ClapTrap &operator=(ClapTrap const &in);
+    ClapTrap(const ClapTrap &in);
+    ClapTrap &operator=(const ClapTrap &in);
 };
 
 #endif

@@ -2,8 +2,11 @@
 
 int main(void)
 {
-    DiamondTrap test;
-    test.attack("test");
+    DiamondTrap test("testis name");
+    test.whoAmI();
+    test.attack("awe");
     test.takeDamage(100000);
-    test.attack("test");
+    test.attack("awe");
+    test.guardGate();
+    test.highFivesGuys();
 }

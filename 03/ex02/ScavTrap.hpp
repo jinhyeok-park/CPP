@@ -12,7 +12,7 @@ public :
     ScavTrap(ScavTrap const &input);
     ScavTrap &operator=(ScavTrap const &input);
     void guardGate(void);
-    void attack(std::string name);
+    void attack(const std::string &name);
 };
 
 #endif

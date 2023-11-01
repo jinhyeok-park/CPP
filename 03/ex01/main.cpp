@@ -4,7 +4,6 @@ int main(void)
 {
     ScavTrap scavmon("scav");
     ScavTrap test(scavmon);
-    std::cout << test.getName() <<  std::endl;
     
     ClapTrap clapmon("clap");
 
@@ -16,5 +15,6 @@ int main(void)
     scavmon.takeDamage(clapmon.getAttackDamage());
     clapmon.attack("scav");
     scavmon.takeDamage(clapmon.getAttackDamage());
+    scavmon.takeDamage(10000);
     scavmon.guardGate();
 }

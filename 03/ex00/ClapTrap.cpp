@@ -55,8 +55,12 @@ void    ClapTrap::attack(const std::string &target) {
 void    ClapTrap::takeDamage(unsigned int amount) {
     if (this->mHitPoints)
     {
-        std::cout << "take damage" << std::endl;
-        this->mHitPoints -= amount;
+        std::cout << this->mName;
+        std::cout << " take damage" << std::endl;
+        if (amount > static_cast<unsigned int>(this->mHitPoints))
+            this->mHitPoints = 0;
+        else
+            this->mHitPoints -= amount;
     }
     else
         std::cout << "aleady dead.." << std::endl;
@@ -64,5 +68,14 @@ void    ClapTrap::takeDamage(unsigned int amount) {
 
 void    ClapTrap::beRepaired(unsigned int amount) {
     std::cout << "repaire" << std::endl;
-    this->mHitPoints += amount;
+    if (this->mEnergyPoints <= 0) {
+        std::cout << "not enough energy!" << std::endl;
+        return ;
+    }
+    this->mEnergyPoints--;
+    bool overFlow =  amount > std::numeric_limits<unsigned int>::max() - this->mHitPoints;
+    if (overFlow)
+        this->mHitPoints = std::numeric_limits<unsigned int>::max();
+    else
+        this->mHitPoints += amount;
 }

@@ -36,16 +36,13 @@ ScavTrap::~ScavTrap(void) {
 }
 
 void ScavTrap::guardGate(void){
-    if  (this->mEnergyPoints && this->mHitPoints > 0)
-    {
+    if (this->mHitPoints > 0)
         std::cout << this->mName << " is now in Gate keeper mode." << std::endl;
-        this->mEnergyPoints--;
-    }
-    else
-        std::cout << "not enough energy" << std::endl;
+    else 
+        std::cout << "aleady die.." << std::endl;
 }
 
-void    ScavTrap::attack(std::string target) {
+void    ScavTrap::attack(const std::string &target) {
     if (this->mEnergyPoints && this->mHitPoints > 0)
     {
         std::cout << "FragTrap ";
