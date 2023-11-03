@@ -25,7 +25,7 @@ Animal &Animal::operator=(const Animal &other) {
     return *this;
 }
 
-std::string Animal::getType(void) {
+std::string Animal::getType(void) const {
     return this->type;
 }
 
@@ -33,6 +33,6 @@ void Animal::setType(std::string input){
     this->type = input;
 }
 
-void    Animal::makeSound(void) {
+void    Animal::makeSound(void) const {
     std::cout << "Animal ,, what is your sound?"  << std::endl;
 }

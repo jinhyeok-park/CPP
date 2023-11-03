@@ -10,10 +10,25 @@ int main(void)
     // test = test2;
     // test.getType();
 
-    Animal *a = new Cat("Cat");
-    Animal *b = new Dog("Dog");
-    std::cout << a->getType() << std::endl;
-    a->makeSound();
-    b->makeSound();
-    delete(a);
+    // const Animal *a = new Cat("Cat");
+    // const Animal *b = new Dog("Dog");
+    // //std::cout << a->getType() << std::endl;
+    // a->makeSound();
+    // b->makeSound();
+    // delete(a);
+    // delete(b);
+
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+
+    std::cout  << j->getType() << " " << std::endl;
+    std::cout  << i->getType() << " " << std::endl;
+    i->makeSound();
+    j->makeSound();
+    meta->makeSound();
+
+    delete meta;
+    delete i;
+    delete j;
 }
