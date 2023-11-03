@@ -1,11 +1,13 @@
 CXX = c++
 NAME = Animal
-INC = Animal.hpp Cat.hpp Dog.hpp
+INC = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp \
 	Animal.cpp \
 	Cat.cpp \
-	Dog.cpp
+	Dog.cpp \
+	WrongAnimal.cpp \
+	WrongCat.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
