@@ -13,6 +13,7 @@ public :
     Cat(const Cat &other);
     Cat &operator=(const Cat &other);
     void    makeSound(void) const ;
+    Brain &getBrain(void);
 };
 
 #endif

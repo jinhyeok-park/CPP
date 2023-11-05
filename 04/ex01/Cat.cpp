@@ -25,15 +25,20 @@ Cat &Cat::operator=(const Cat &other) {
     if (this != &other)
     {
         Animal::operator=(other);
-        Brain *temp = new Brain();
         if (this->mBrain)
             delete(this->mBrain);
-        temp = other.mBrain;
-        this->mBrain = temp;
+        if (other.mBrain)
+            this->mBrain = new Brain(*other.mBrain);
+        else
+            this->mBrain = NULL;
     }
     return *this;
 }
 
 void    Cat::makeSound(void) const {
     std::cout << "Cat yaong~" << std::endl;
+}
+
+Brain &Cat::getBrain(void) {
+    return *this->mBrain;
 }

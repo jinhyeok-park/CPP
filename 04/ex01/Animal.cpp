@@ -19,6 +19,7 @@ Animal::Animal(const Animal &other) {
 }
 
 Animal &Animal::operator=(const Animal &other) {
+    std::cout << "Animal operator" << std::endl;
     if (this == &other)
         return *this;
     this->type = other.type;
