@@ -1,7 +1,9 @@
 #include "Brain.hpp"
 
-Brain::Brain(void) : mIdeas{"noidea..", } {
+Brain::Brain(void) {
     std::cout << "Brain defualt constructor" << std::endl;
+    for (int i = 0 ; i < 100 ; i++)
+        this->mIdeas[i] = "no idea..";
 }
 
 Brain::~Brain(void) {

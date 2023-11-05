@@ -4,6 +4,8 @@
 #include "Animal.hpp"
 
 class Dog : public Animal{
+private :
+    Brain *mBrain;
 public :
     Dog(void);
     ~Dog(void);

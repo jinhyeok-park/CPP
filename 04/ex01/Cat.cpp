@@ -11,8 +11,8 @@ Cat::Cat(std::string type) : Animal(type) {
 }
 
 Cat::~Cat(void) {
-    std::cout << "Cat destroy" << std::endl;
     delete(this->mBrain);
+    std::cout << "Cat destroy" << std::endl;
 }
 
 Cat::Cat(const Cat &other) : Animal(other){
@@ -26,11 +26,10 @@ Cat &Cat::operator=(const Cat &other) {
     {
         Animal::operator=(other);
         Brain *temp = new Brain();
-        for (int i = 0 ; i < 100 ; i ++)
-        {
-            
-        }
-        this->mBrain = 
+        if (this->mBrain)
+            delete(this->mBrain);
+        temp = other.mBrain;
+        this->mBrain = temp;
     }
     return *this;
 }
