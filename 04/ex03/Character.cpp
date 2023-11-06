@@ -2,13 +2,13 @@
 
 Character::Character(void) {
     std::cout << "Character Constructor" <<std::endl;
-    this->mName = "defulat";
+    this->mName = "defualt";
     this->mIndexInventory = -1;
     *this->mInventory = NULL;
 }
 
 Character::~Character(void) {
-    delete(this->mInventory);
+    //delete(this->mInventory);
     std::cout << "Character destroy" << std::endl;
 }
 
@@ -28,9 +28,17 @@ Character &Character::operator=(const Character & other) {
     std::cout << "Character operator" << std::endl;
     if (this != &other)
     {
-        
-
+        this->mIndexInventory = other.mIndexInventory;
+        if (other.mInventory)
+        {
+            for (int i = 0 ; i < 4 ; i ++)
+               this->mInventory[i] = other.mInventory[i];
+        }
+        else
+            *this->mInventory = NULL;
+        this->mName = other.mName;
     }
+    return *this;
 }
 
 std::string const & Character::getName(void) const {
