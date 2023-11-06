@@ -10,6 +10,7 @@ public :
     ~Cure(void);
     Cure(const Cure &other);
     Cure &operator=(const Cure &other);
+    void use(ICharacter& target);
 };
 
 #endif

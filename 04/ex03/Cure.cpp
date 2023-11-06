@@ -20,3 +20,9 @@ Cure &Cure::operator=(const Cure &other) {
     }
     return *this;
 }
+
+void Cure::use(ICharacter& target) {
+    std::cout << "* heals ";
+    std::cout << target.getName();
+    std::cout << "’s wounds *" << std::endl;
+}

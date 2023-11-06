@@ -3,7 +3,7 @@
 Character::Character(void) {
     std::cout << "Character Constructor" <<std::endl;
     this->mName = "defulat";
-    this->mIndexInventory = 0;
+    this->mIndexInventory = -1;
     *this->mInventory = NULL;
 }
 
@@ -15,7 +15,7 @@ Character::~Character(void) {
 Character::Character(std::string name) {
     std::cout << "Charcter Constructor" <<  std::endl;
     this->mName = name;
-    this->mIndexInventory = 0;
+    this->mIndexInventory = -1;
     *this->mInventory = NULL;
 }
 
@@ -38,6 +38,7 @@ std::string const & Character::getName(void) const {
 }
 
 void    Character::equip(AMateria *m) {
+    this->mIndexInventory++;
     this->mInventory[this->mIndexInventory % 4] = m;
 }
 
@@ -49,5 +50,8 @@ void    Character::unequip(int idx) {
 }
 
 void    Character::use(int idx, ICharacter &target) {
-
+    if (mIndexInventory >= 0 && idx < 4)
+        this->mInventory[idx]->use(target);
+    else 
+        std::cout << "out of range" << std::endl;
 }
