@@ -24,5 +24,6 @@ AMateria &AMateria::operator=(const AMateria &other ){
 }
 
 void    AMateria::use(ICharacter &target) {
-    std::cout << "test" << std::endl;
+    (void)target;
+    std::cout << "use AMataria" << std::endl;
 }

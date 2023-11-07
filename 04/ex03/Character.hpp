@@ -2,11 +2,12 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
+#define MAX_INVENTORY 4
 
-class Character : ICharacter {
+class Character : public ICharacter {
 
 private :
-    AMateria *mInventory[4];
+    AMateria *mInventory[MAX_INVENTORY];
     std::string mName;
     int mIndexInventory;
 public :
@@ -15,6 +16,7 @@ public :
     ~Character(void);
     Character(const Character & other);
     Character &operator=(const Character & other);
+
     std::string const & getName(void) const;
     void    equip(AMateria *m);
     void    unequip(int idx);

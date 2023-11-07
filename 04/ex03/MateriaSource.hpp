@@ -2,19 +2,25 @@
 #define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
-#define MAX_STORE 30
+#include "Ice.hpp"
+#include "Cure.hpp"
+#define MAX_STORE 4
 
-class MateriaSource : IMateriaSource {
+
+class MateriaSource : public IMateriaSource {
+
 private :
     AMateria *mStore[MAX_STORE];
     int       mStoreSize;
+
 public :
     MateriaSource(void);
     ~MateriaSource(void);
     MateriaSource(const MateriaSource &other);
     MateriaSource &operator=(const MateriaSource &other);
+
     void learnMateria(AMateria* materia);
-    AMateria* createMateria(std::string const type);
+    AMateria* createMateria(std::string const & type);
 };
 
 #endif

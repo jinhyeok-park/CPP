@@ -8,7 +8,6 @@ Character::Character(void) {
 }
 
 Character::~Character(void) {
-    //delete(this->mInventory);
     std::cout << "Character destroy" << std::endl;
 }
 
@@ -28,11 +27,11 @@ Character &Character::operator=(const Character & other) {
     std::cout << "Character operator" << std::endl;
     if (this != &other)
     {
-        this->mIndexInventory = other.mIndexInventory;
-        if (other.mInventory)
+        if (other.mIndexInventory != -1)
         {
             for (int i = 0 ; i < 4 ; i ++)
                this->mInventory[i] = other.mInventory[i];
+            this->mIndexInventory = other.mIndexInventory;
         }
         else
             *this->mInventory = NULL;
@@ -46,8 +45,13 @@ std::string const & Character::getName(void) const {
 }
 
 void    Character::equip(AMateria *m) {
-    this->mIndexInventory++;
-    this->mInventory[this->mIndexInventory % 4] = m;
+    if (this->mIndexInventory < 3)
+    {
+        this->mIndexInventory++;
+        this->mInventory[this->mIndexInventory] = m;
+    }
+    else
+        std::cout << "Charactor inventory is full" << std::endl;
 }
 
 void    Character::unequip(int idx) {

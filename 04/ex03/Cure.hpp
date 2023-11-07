@@ -3,14 +3,16 @@
 
 #include "AMateria.hpp"
 
-class Cure : AMateria {
+class Cure : public AMateria {
 
 public :
     Cure(void);
     ~Cure(void);
     Cure(const Cure &other);
     Cure &operator=(const Cure &other);
+
     void use(ICharacter& target);
+    AMateria* clone() const;
 };
 
 #endif
