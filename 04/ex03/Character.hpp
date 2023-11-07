@@ -3,13 +3,17 @@
 
 #include "ICharacter.hpp"
 #define MAX_INVENTORY 4
+#define MAX_TRASHCAN 30
 
 class Character : public ICharacter {
 
 private :
     AMateria *mInventory[MAX_INVENTORY];
+    AMateria **mTrashCan;
     std::string mName;
+    int mTrashCanIndex;
     int mIndexInventory;
+    int mTrashSizeUp;
 public :
     Character(void);
     Character(std::string name);
