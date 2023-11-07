@@ -41,6 +41,15 @@ Character::Character(const Character & other) {
     *this = other;
 }
 
+void    trashDeleter(int size, AMateria ** &trashCan) {
+    for (int i = 0 ; i < size * MAX_TRASHCAN ; i ++)
+    {
+        if (trashCan[i])
+            delete trashCan[i];
+    }
+    delete [] trashCan;
+}
+
 Character &Character::operator=(const Character & other) {
     std::cout << "Character operator" << std::endl;
     if (this != &other)
@@ -50,6 +59,12 @@ Character &Character::operator=(const Character & other) {
             for (int i = 0 ; i < 4 ; i ++)
                this->mInventory[i] = other.mInventory[i];
             this->mIndexInventory = other.mIndexInventory;
+            trashDeleter(this->mTrashSizeUp, this->mTrashCan);
+            AMateria **trashTemp = new AMateria *[other.mTrashSizeUp * MAX_TRASHCAN];
+            for (int i = 0 ; i < this->mTrashSizeUp * MAX_TRASHCAN ; i++)
+                trashTemp[i] = other.mTrashCan[i];
+            this->mTrashCan = trashTemp;
+            this->mTrashCanIndex = other.mTrashCanIndex;
         }
         else
             *this->mInventory = NULL;
@@ -81,13 +96,9 @@ void    Character::equip(AMateria *m) {
             delete[] this->mTrashCan;
             temp[this->mTrashCanIndex++] = m;
             this->mTrashCan = temp;
-            // std::cout << "here count" << std::endl;
         }
         else
-        {
             this->mTrashCan[this->mTrashCanIndex++] = m;
-            std::cout << "here count" << std::endl;
-        }
     }
     if (this->mIndexInventory < 3)
     {
