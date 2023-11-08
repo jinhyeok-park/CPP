@@ -80,6 +80,11 @@ std::string const & Character::getName(void) const {
 void    Character::equip(AMateria *m) {
     int flag = 1;
 
+    if (m == NULL)
+    {
+        std::cout << "NULL check again" << std::endl;
+        return ;
+    }
     for (int i = 0 ; i < MAX_TRASHCAN * this->mTrashSizeUp ; i ++)
     {
         if (this->mTrashCan[i] != NULL && this->mTrashCan[i] == m)
@@ -117,8 +122,11 @@ void    Character::unequip(int idx) {
 }
 
 void    Character::use(int idx, ICharacter &target) {
-    if (mIndexInventory >= 0 && idx < 4)
+    if (idx <= this->mIndexInventory && mIndexInventory >= 0 && idx < 4)
+    {
+        std::cout << "this end" << std::endl;
         this->mInventory[idx]->use(target);
+    }
     else 
         std::cout << "out of range" << std::endl;
 }

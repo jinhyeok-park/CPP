@@ -2,6 +2,10 @@
 #include "Dog.hpp"
 #include "Brain.hpp"
 
+// void    leaks(void) {
+//     system ("leaks Animal");
+// }
+
 int main(void)
 {
     const Animal* j = new Dog();
@@ -51,5 +55,6 @@ int main(void)
     }
     delete i;
     delete j;
+
     return 0;
 }
