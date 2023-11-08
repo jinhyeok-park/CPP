@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal("defulat dog"){
+Dog::Dog(void) : Animal("Dog"){
     std::cout << "dog defulat constructor" << std::endl;
     this->mBrain = new Brain();
 }

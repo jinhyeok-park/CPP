@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat(void) : Animal("default cat") {
+Cat::Cat(void) : Animal("Cat") {
     std::cout << "Cat defulat constructor" << std::endl;
 }
 
