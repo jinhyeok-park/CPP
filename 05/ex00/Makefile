@@ -1,9 +1,9 @@
 CXX = c++
 NAME = game
-INC = 
+INC = Bureaucrat.hpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp \
-	MateriaSource.cpp
+	Bureaucrat.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
