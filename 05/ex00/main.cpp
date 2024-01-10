@@ -9,7 +9,6 @@ int main(void)
     std::cout<< "my grade is " << test4.GetGrade() << std::endl;
     test = test2;
     std::cout<< "my grade is " << test.GetGrade() << std::endl;
-    // test.SetGrade(159);
     test.GradeIncrement();
     test.GradeIncrement();
     std::cout<< "my grade is " << test.GetGrade() << std::endl;
