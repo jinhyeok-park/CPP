@@ -2,6 +2,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
@@ -32,19 +33,26 @@ int main(void)
         // AForm file2("file1", false, 123, 123);
         // Bureaucrat  tester2("tester2", 20);
         // tester2.SignAForm(file2);
-        Bureaucrat tester("tester1", 1);
+        // Bureaucrat tester("tester1", 1);
         // ShrubberyCreationForm test("treee");
         // test.BeSigned(tester);
         // test.execute(tester);
 
-        RobotomyRequestForm test2;
+        // RobotomyRequestForm test2;
         // test2.BeSigned(tester);
-        test2.execute(tester);
+        // test2.execute(tester);
         // tester.ExecuteForm(test2);
         
         // PresidentialPardonForm test("ta");
         // test.BeSigned(tester);
         // test.execute(tester);
+        Intern in;
+        Bureaucrat test("tester", 5);
+        AForm   *te;
+        
+        te = in.makeForm("PresidentialPardon", "tes");
+        te->BeSigned(test);
+        te->execute(test);
     }
     catch (AForm::GradeTooLowException &e)
     {

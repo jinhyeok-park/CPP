@@ -3,15 +3,14 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-class AForm;
+class Form;
 
 class Bureaucrat {
 
 private :
-    const std::string          m_Name;
-    int                        m_Grade;
+    const std::string m_Name;
+    int              m_Grade;
 
-protected :
     void BoundValue(int grade);
 
 public :
@@ -19,14 +18,14 @@ public :
     ~Bureaucrat(void);
     Bureaucrat(std::string name, int grade);
     Bureaucrat(const Bureaucrat& other);
+
     Bureaucrat& operator=(const Bureaucrat& other);
     void        GradeIncrement(void);
     void        GradeDecreament(void);
-    int         GetGrade(void) const;
+    int         GetGrade(void);
     std::string GetName(void);
+    void    SignForm(Form &f);
 
-    void    SignAForm(AForm &f);
-    void    ExecuteForm(AForm const & form);
     class GradeTooHighException : public std::exception{
 
         public :
