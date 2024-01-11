@@ -27,7 +27,7 @@ int main(void)
         // file2.BeSigned(tester2);
 
         Form file2("file1", false, 123, 123);
-        Bureaucrat  tester2("tester2", 20);
+        Bureaucrat  tester2("tester2", 140);
         tester2.SignForm(file2);
     }
     catch (Form::GradeTooLowException &e)

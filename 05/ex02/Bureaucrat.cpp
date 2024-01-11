@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(void) : m_Name("default") , m_Grade(150) {
     std::cout << "default constructor" << std::endl;
@@ -74,7 +74,7 @@ void    Bureaucrat::GradeIncrement(void)
     BoundValue(this->m_Grade);
 }
 
-void    Bureaucrat::SignForm(Form &f)
+void    Bureaucrat::SignAForm(AForm &f)
 {
     f.BeSigned(*this);
 }

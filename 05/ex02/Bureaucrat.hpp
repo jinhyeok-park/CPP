@@ -3,7 +3,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -19,7 +19,7 @@ public :
     ~Bureaucrat(void);
     Bureaucrat(std::string name, int grade);
     Bureaucrat(const Bureaucrat& other);
-    void    SignForm(Form &f);
+    void    SignAForm(AForm &f);
     Bureaucrat& operator=(const Bureaucrat& other);
     void        GradeIncrement(void);
     void        GradeDecreament(void);

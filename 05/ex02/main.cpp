@@ -1,4 +1,5 @@
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
@@ -17,24 +18,27 @@ int main(void)
         // Bureaucrat tester3("tester1", 150);
         // tester3.GradeDecreament(); // brucrate function error
 
-        // Form file1("file1", false, 10 , 10);
+        // AForm file1("file1", false, 10 , 10);
         // Bureaucrat  tester1("tester1", 1);
         // file1.BeSigned(tester1);
 
-        // Form file2("file1", false, 1, 1);
+        // AForm file2("file1", false, 1, 1);
         // std::cout << file2 << std::endl;
         // Bureaucrat  tester2("tester2", 150);
         // file2.BeSigned(tester2);
 
-        Form file2("file1", false, 123, 123);
-        Bureaucrat  tester2("tester2", 20);
-        tester2.SignForm(file2);
+        // AForm file2("file1", false, 123, 123);
+        // Bureaucrat  tester2("tester2", 20);
+        // tester2.SignAForm(file2);
+        Bureaucrat tester("tester1", 1);
+        ShrubberyCreationForm test;
+        test.BeSigned(tester);
     }
-    catch (Form::GradeTooLowException &e)
+    catch (AForm::GradeTooLowException &e)
     {
         std::cout << e.what() << std::endl;
     }
-    catch (Form::GradeTooHighException &e)
+    catch (AForm::GradeTooHighException &e)
     {
         std::cout << e.what() << std::endl;
     }

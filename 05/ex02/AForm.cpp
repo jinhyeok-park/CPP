@@ -1,23 +1,23 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(void) : m_Name("default"), m_IsSignedIn(false), m_SignRequiredGrade(1), m_ExecuteRequiredGrade(1) {
-    std::cout << "Form defualt Constructor" << std::endl;
+AForm::AForm(void) : m_Name("default"), m_IsSignedIn(false), m_SignRequiredGrade(1), m_ExecuteRequiredGrade(1) {
+    std::cout << "AForm defualt Constructor" << std::endl;
 }
 
-Form::~Form(void) {
+AForm::~AForm(void) {
     std::cout<< this->m_Name << " destroy" << std::endl;
 }
 
-Form::Form(std::string m_Name, bool m_IsSignedIn, int m_SignRequiredGrade, int m_ExecuteRequiredGrade) \
+AForm::AForm(std::string m_Name, bool m_IsSignedIn, int m_SignRequiredGrade, int m_ExecuteRequiredGrade) \
 : m_Name(m_Name), m_IsSignedIn(m_IsSignedIn), m_SignRequiredGrade(m_SignRequiredGrade), m_ExecuteRequiredGrade(m_ExecuteRequiredGrade)
 {
     this->m_IsSignedIn = m_IsSignedIn;
     BoundValue(this->m_SignRequiredGrade);
     BoundValue(this->m_ExecuteRequiredGrade);
-    std::cout << m_Name << " Form Constructor" << std::endl;
+    std::cout << m_Name << " AForm Constructor" << std::endl;
 }
 
-Form &Form::operator=(const Form &in)
+AForm &AForm::operator=(const AForm &in)
 {
     if (this == &in)
         return *this;
@@ -25,59 +25,65 @@ Form &Form::operator=(const Form &in)
     return *this;
 }
 
-void    Form::BoundValue(int grade) {
+void    AForm::BoundValue(int grade) {
     if (grade < 1)
     {
-        throw Form::GradeTooHighException();
+        throw AForm::GradeTooHighException();
     }
     else if (grade > 150)
     {
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     }
 }
 
-void    Form::BeSigned(Bureaucrat &in)
+void    AForm::BeSigned(Bureaucrat &in)
 {
-    if (this->m_IsSignedIn == true)
-        std::cout << m_Name << "this is aleady singed" << std::endl;
-    else if (this->m_SignRequiredGrade > in.GetGrade())
-    {
-        this->m_IsSignedIn = true; 
-        std::cout << in.GetName() << " signed " << m_Name <<std::endl;
+    try {
+        if (this->m_IsSignedIn)
+            std::cout << m_Name << "this is aleady singed" << std::endl;
+        else if (this->m_SignRequiredGrade >= in.GetGrade())
+        {
+            this->m_IsSignedIn = true; 
+            std::cout << in.GetName() << " signed " << m_Name <<std::endl;
+        }
+        else 
+        {
+            std::cout << in.GetName() << " couldn`t sign " << m_Name << " because ";
+            throw AForm::GradeTooLowException();
+        }
     }
-    else 
+    catch (GradeTooLowException &e)
     {
-        std::cout << in.GetName() << " couldn`t sign " << m_Name << " because permission level denied"<<std::endl;
-        throw Form::GradeTooLowException();
+        std::cout << e.what() << std::endl;
     }
 }
 
-const char *Form::GradeTooHighException::what(void) const throw()
+const char *AForm::GradeTooHighException::what(void) const throw()
 {
     return "grade is too high";
 }
-const char *Form::GradeTooLowException::what(void) const throw() 
+const char *AForm::GradeTooLowException::what(void) const throw() 
 {
     return "grade is too low";
 }
 
-std::string Form::GetName(void) const {
+std::string AForm::GetName(void) const {
     return this->m_Name;
 }
 
-int Form::GetIsSignedIn(void) const {
+int AForm::GetIsSignedIn(void) const {
     return m_IsSignedIn;
 }
 
-int Form::GetSignRequiredGrade(void) const {
+int AForm::GetSignRequiredGrade(void) const {
     return m_SignRequiredGrade;
 }
 
-int Form::GetExecuteRequiredGrade(void) const {
+int AForm::GetExecuteRequiredGrade(void) const {
     return m_ExecuteRequiredGrade;
 }
 
-std::ostream& operator<<(std::ostream &out, const Form &f)
+std::ostream& operator<<(std::ostream &out, const AForm &f)
 {
     out << f.GetName() << " " << f.GetIsSignedIn() << " " << \
     f.GetSignRequiredGrade() << " " << f.GetExecuteRequiredGrade(); 

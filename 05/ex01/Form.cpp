@@ -38,17 +38,23 @@ void    Form::BoundValue(int grade) {
 
 void    Form::BeSigned(Bureaucrat &in)
 {
-    if (this->m_IsSignedIn == true)
-        std::cout << m_Name << "this is aleady singed" << std::endl;
-    else if (this->m_SignRequiredGrade > in.GetGrade())
-    {
-        this->m_IsSignedIn = true; 
-        std::cout << in.GetName() << " signed " << m_Name <<std::endl;
+    try {
+        if (this->m_IsSignedIn)
+            std::cout << m_Name << "this is aleady singed" << std::endl;
+        else if (this->m_SignRequiredGrade >= in.GetGrade())
+        {
+            this->m_IsSignedIn = true; 
+            std::cout << in.GetName() << " signed " << m_Name <<std::endl;
+        }
+        else 
+        {
+            std::cout << in.GetName() << " couldn`t sign " << m_Name << " because ";
+            throw Form::GradeTooLowException();
+        }
     }
-    else 
+    catch (GradeTooLowException &e)
     {
-        std::cout << in.GetName() << " couldn`t sign " << m_Name << " because permission level denied"<<std::endl;
-        throw Form::GradeTooLowException();
+        std::cout << e.what() << std::endl;
     }
 }
 
