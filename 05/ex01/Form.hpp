@@ -12,12 +12,12 @@ private :
     const   int         m_SignRequiredGrade;
     const   int         m_ExecuteRequiredGrade;
  
+    void BoundValue(int grade);
 public :
     Form(void);
     ~Form(void);
     Form(std::string m_Name, bool m_statusSigned, int m_SignRequiredGrade, int m_ExecuteRequiredGrade);
     Form &operator=(const Form &in);
-    void BoundValue(int grade);
     void BeSigned(Bureaucrat &in);
     std::string    GetName(void) const;
     int            GetIsSignedIn(void) const;

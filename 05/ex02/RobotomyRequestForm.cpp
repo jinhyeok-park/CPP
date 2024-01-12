@@ -28,14 +28,11 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &o
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     try {
-        if (CheckSignAuthority(*this, executor))
-        {
             if (CheckExecAuthority(*this, executor))
             {
                 Working();
                 return ;
             }
-        }
         if (!this->GetIsSignedIn())
             throw AForm::NotSignedException();
         throw AForm::GradeTooLowException();

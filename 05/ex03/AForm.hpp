@@ -12,15 +12,14 @@ private :
     const   int         m_SignRequiredGrade;
     const   int         m_ExecuteRequiredGrade;
  
+    void BoundValue(int grade);
+
 public :
     //ocf
     AForm(void);
     virtual ~AForm(void);
     AForm(std::string m_Name, bool m_statusSigned, int m_SignRequiredGrade, int m_ExecuteRequiredGrade);
     AForm &operator=(const AForm &in);
-
-    //myfunction
-    void BoundValue(int grade);
     //function 
     void BeSigned(Bureaucrat &in);
     //getter

@@ -12,7 +12,6 @@ Bureaucrat::~Bureaucrat(void) {
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : m_Name(other.m_Name) {
     std::cout << "copy constructor" << std::endl;
     BoundValue(other.m_Grade);
-    this->m_Grade = other.m_Grade;
     *this = other;
 }
 
@@ -21,6 +20,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
     if (this  == &other)
         return (*this);
     BoundValue(other.m_Grade);
+    this->m_Grade = other.m_Grade;
     std::cout << "Name is const value can`t change it!" << std::endl;
     return *this;
 }
@@ -63,15 +63,15 @@ std::string     Bureaucrat::GetName(void)
 void    Bureaucrat::GradeDecreament(void)
 {
     this->m_Grade += 1;
-    std::cout << "down grade " << this->m_Grade << std::endl;
     BoundValue(this->m_Grade);
+    std::cout << "down grade " << this->m_Grade << std::endl;
 }
 
 void    Bureaucrat::GradeIncrement(void)
 {
     this->m_Grade -= 1;
-    std::cout << "up grade " << this->m_Grade << std::endl;
     BoundValue(this->m_Grade);
+    std::cout << "up grade " << this->m_Grade << std::endl;
 }
 
 void    Bureaucrat::SignAForm(AForm &f)
@@ -84,7 +84,7 @@ void    Bureaucrat::ExecuteForm(AForm const & form) {
   try {
         if (form.GetIsSignedIn())
         {
-            if (form.GetExecuteRequiredGrade() > m_Grade)
+            if (form.GetExecuteRequiredGrade() >= m_Grade)
             {
                 form.Working();
                 std::cout << m_Name << " executed " << form.GetName() << std::endl;

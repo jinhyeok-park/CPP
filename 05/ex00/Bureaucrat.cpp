@@ -18,6 +18,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
     if (this  == &other)
         return (*this);
     BoundValue(other.m_Grade);
+    this->m_Grade = other.m_Grade;
     std::cout << "Name is const value can`t change it!" << std::endl;
     return *this;
 }

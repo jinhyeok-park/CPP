@@ -11,6 +11,8 @@ private :
     bool                m_IsSignedIn;
     const   int         m_SignRequiredGrade;
     const   int         m_ExecuteRequiredGrade;
+
+    void BoundValue(int grade);
  
 public :
     //ocf
@@ -20,7 +22,7 @@ public :
     AForm &operator=(const AForm &in);
 
     //myfunction
-    void BoundValue(int grade);
+    // void BoundValue(int grade);
     //function 
     void BeSigned(Bureaucrat &in);
     //getter

@@ -32,19 +32,23 @@ int main(void)
         // AForm file2("file1", false, 123, 123);
         // Bureaucrat  tester2("tester2", 20);
         // tester2.SignAForm(file2);
-        Bureaucrat tester("tester1", 1);
+        Bureaucrat tester("tester1", 25);
         // ShrubberyCreationForm test("treee");
         // test.BeSigned(tester);
         // test.execute(tester);
 
         RobotomyRequestForm test2;
-        // test2.BeSigned(tester);
+        test2.BeSigned(tester);
         test2.execute(tester);
+
+        // ShrubberyCreationForm test3;
+        // test3.BeSigned(tester);
+        // test3.execute(tester);
         // tester.ExecuteForm(test2);
         
-        // PresidentialPardonForm test("ta");
-        // test.BeSigned(tester);
-        // test.execute(tester);
+        PresidentialPardonForm test("ta");
+        test.BeSigned(tester);
+        test.execute(tester);
     }
     catch (AForm::GradeTooLowException &e)
     {

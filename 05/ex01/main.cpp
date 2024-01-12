@@ -9,9 +9,15 @@ int main(void)
         // Bureaucrat tester3("tester1", 20);
         // Bureaucrat tester(tester3); // cpy assing construct;
 
-        // Bureaucrat tester3("tester1", 20);
-        // tester3.GradeDecreament();
-        // tester3.GradeIncrement(); // brucrate function
+        Bureaucrat tester3("tester1", 1);
+        tester3.GradeDecreament();
+        tester3.GradeIncrement(); // brucrate function
+        //tester3.GradeIncrement(); // brucrate function
+        
+        Form test("qwe", true, -120, -20);
+        // test.BeSigned(tester3);
+        std::cout << test.GetIsSignedIn() << std::endl;
+        std::cout << test << std::endl;
 
 
         // Bureaucrat tester3("tester1", 150);
@@ -26,9 +32,9 @@ int main(void)
         // Bureaucrat  tester2("tester2", 150);
         // file2.BeSigned(tester2);
 
-        Form file2("file1", false, 123, 123);
-        Bureaucrat  tester2("tester2", 140);
-        tester2.SignForm(file2);
+        // Form file2("file1", false, -12233, 23123);
+        // Bureaucrat  tester2("tester2", 12120);
+        // tester2.SignForm(file2);
     }
     catch (Form::GradeTooLowException &e)
     {

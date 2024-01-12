@@ -10,7 +10,7 @@ Intern::Intern(void) {
     m_functions[0] = &Intern::PresidentialPardon;
     m_functions[1] = &Intern::RobotomhyRequest;
     m_functions[2] = &Intern::ShrubberyCreation;
-    std::cout << "Interm default constructor" << std::endl;
+    std::cout << "Intern default constructor" << std::endl;
 }
 
 Intern::Intern(Intern &other){
@@ -25,7 +25,7 @@ Intern &Intern::operator=(Intern &other) {
 }
 
 Intern::~Intern(void) {
-    std::cout << "Interm destroy" << std::endl;
+    std::cout << "Intern destroy" << std::endl;
 }
 
 AForm *Intern::makeForm(std::string form, std::string target) {
@@ -36,7 +36,8 @@ AForm *Intern::makeForm(std::string form, std::string target) {
             return (this->*m_functions[i])(target);
         }
     }
-    std::cout << "makeform Fail, return NULL" << std::endl;
+        std::cout << "makeform Fail, return NULL" << std::endl;
+        throw std::exception();
     return NULL;
 }
 

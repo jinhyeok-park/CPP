@@ -106,7 +106,7 @@ bool    AForm::CheckSignAuthority(AForm const &f, Bureaucrat const &b) const {
 }
 
 bool    AForm::CheckExecAuthority(AForm const &f, Bureaucrat const &b) const {
-    if (f.GetSignRequiredGrade() < b.GetGrade())
+    if (f.GetExecuteRequiredGrade() < b.GetGrade())
     {
         std::cout << "check sign authority level" << std::endl;
         return false;

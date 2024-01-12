@@ -46,13 +46,30 @@ int main(void)
         // PresidentialPardonForm test("ta");
         // test.BeSigned(tester);
         // test.execute(tester);
-        Intern in;
-        Bureaucrat test("tester", 5);
-        AForm   *te;
-        
-        te = in.makeForm("PresidentialPardon", "tes");
-        te->BeSigned(test);
-        te->execute(test);
+        Intern      in;
+        Bureaucrat  test("tester", 5);
+        // AForm       *presi;
+        // AForm   const *test1;
+        RobotomyRequestForm testform;
+        AForm       *a;
+        a = in.makeForm("PresidentialPardon", "1");
+        a->BeSigned(test);
+        a->execute(test);
+        test.ExecuteForm(*a);
+        delete(a);
+        a = in.makeForm("RobotomyRequest", "2");
+        a->BeSigned(test);
+        a->execute(test);
+        test.ExecuteForm(*a);
+        delete(a);
+        a = in.makeForm("ShrubberyCreation", "3");
+        a->BeSigned(test);
+        a->execute(test);
+        // test.ExecuteForm(*a);
+        delete(a);
+        // presi = in.makeForm("PresidentialPardon", "jin");
+        // presi->BeSigned(test);
+        //test.ExecuteForm(testform);
     }
     catch (AForm::GradeTooLowException &e)
     {
@@ -69,5 +86,9 @@ int main(void)
     catch (Bureaucrat::GradeTooLowException &e)
     {
         std::cout << e.what() << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "cehck the form name, make form fail" << std::endl;
     }
 }
