@@ -11,6 +11,8 @@ class Intern {
     public :
         Intern(void);
         ~Intern(void);
+        Intern(Intern &other);
+        Intern &operator=(Intern &other);
         AForm   *makeForm(std::string form, std::string target);
         AForm   *PresidentialPardon(std::string target);
         AForm   *RobotomhyRequest(std::string target);

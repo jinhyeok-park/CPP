@@ -13,6 +13,17 @@ Intern::Intern(void) {
     std::cout << "Interm default constructor" << std::endl;
 }
 
+Intern::Intern(Intern &other){
+    std::cout << "assign constructor" << std::endl;
+    *this = other;
+}
+
+Intern &Intern::operator=(Intern &other) {
+    if (this != &other)
+        return (*this);
+    return *this;
+}
+
 Intern::~Intern(void) {
     std::cout << "Interm destroy" << std::endl;
 }
