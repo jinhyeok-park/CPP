@@ -18,12 +18,12 @@ Base *TypeInspector::generator(void) {
     int *rand = new int;
     int val;
     val = (unsigned long)(rand) % 10000;
-    if (val > 0 && val < 3333)
+    if (val >= 0 && val < 3333)
     {
         //std::cout << "1" << std::endl;
         return new A();
     }
-    else if (val > 3332 && val < 6666)
+    else if (val >= 3333 && val < 6666)
     {
         //std::cout << "2" << std::endl;
         return new B();
