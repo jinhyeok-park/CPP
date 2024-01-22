@@ -3,9 +3,6 @@ NAME = TypeInspector
 INC = A.hpp B.hpp C.hpp Base.hpp TypeInspector.hpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp \
-	A.cpp \
-	B.cpp \
-	C.cpp \
 	Base.cpp \
 	TypeInspector.cpp \
 

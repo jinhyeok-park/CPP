@@ -20,15 +20,9 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
     return *this;
 }
 
-std::string ScalarConverter::convert(const char *str) {
-    //char 
-    //int 
-    //float
-    //double
-    std::stringstream ss;
-    ss.precision(5);
-    //ss.setf(std::ios::fixed);
+void ScalarConverter::convert(const char *str) {
     double d;
+    std::stringstream ss;
     std::string str1 = str;
     if (str1.length() == 1 && !std::isdigit(str[0]))
     {
@@ -45,15 +39,11 @@ std::string ScalarConverter::convert(const char *str) {
             std::exit(1);
         }
     }
-    //char 
-    // nan , inf impossible
-    // 0 non printable ascii!!
     ss << "char: ";
     int i;
     i = static_cast<int>(d);
     if (std::isinf(d) || std::isnan(d))
     {
-        //inf or nan;
         ss << "impossible";
     }
     else if (i < 31 || i > 126)
@@ -65,7 +55,6 @@ std::string ScalarConverter::convert(const char *str) {
         ss << "'" << static_cast<char>(i) << "'";
     }
     ss << std::endl;
-    // int
     ss << "int: ";
     if (std::isinf(d) || std::isnan(d))
     {
@@ -80,7 +69,6 @@ std::string ScalarConverter::convert(const char *str) {
         ss << i;
     }
     ss << std::endl;
-    //float
     ss << "float: ";
     float f;
     if (std::isinf(d) && d > 0)
@@ -97,5 +85,5 @@ std::string ScalarConverter::convert(const char *str) {
         ss << "+";
     }
     ss << (d) << std::endl;
-    return ss.str();
+    std::cout << ss.str();
 }

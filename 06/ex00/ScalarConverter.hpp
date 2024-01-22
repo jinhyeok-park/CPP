@@ -13,7 +13,7 @@ class ScalarConverter {
     ~ScalarConverter(void);
     ScalarConverter(ScalarConverter const &other);
     ScalarConverter &operator=(ScalarConverter const &other);
-    static std::string convert(const char *str);
+    static void convert(const char *str);
 };
 
 #endif
