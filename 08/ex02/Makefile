@@ -1,6 +1,6 @@
 CXX = c++
-NAME = template
-INC = whatever.hpp
+NAME = MutantStack
+INC = MutantStack.hpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp \
 

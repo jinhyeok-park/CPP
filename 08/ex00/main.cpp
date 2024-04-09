@@ -1,24 +1,42 @@
-#include "easyfind.h"
-
-#include <list>
-#include <vector>
-#include <deque>
-#include <array>
-
-#include <set>
-#include <map>
+#include "easyfind.hpp"
 
 int main(void)
 {
-    std::vector<int> container1;
+	std::vector<int> v;
+	std::deque<int> d;
+	std::list<int> l;
+    
+	for (int i = 0; i < 10; i++)
+	{
+		v.push_back(i);
+		d.push_back(i);
+		l.push_back(i);
+	}
 
-    try 
-    {
-        std::vector<int>::iterator ret1 = easyfind(container1, 3);
-        (void)ret1;
-    }
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+	try
+	{
+		std::cout << *(easyfind(v, 5)) << "'s index is : " << std::distance(v.begin(), easyfind(v, 5)) << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << *(easyfind(d, 0)) << "'s index is : " << std::distance(d.begin(), easyfind(d, 0)) << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << *(easyfind(l, 10)) << "'s index is " << std::distance(l.begin(), easyfind(l, 5)) << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	return (0);
 }

@@ -1,7 +1,7 @@
 CXX = c++
 NAME = easyfind
-INC = easyfind.h
-FLAGS = -g -Wall -Wextra -Werror -std=c++98
+INC = easyfind.hpp
+FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp \
 
 OBJ = $(SRC:.cpp=.o)

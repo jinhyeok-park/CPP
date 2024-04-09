@@ -1,8 +1,9 @@
 CXX = c++
-NAME = template
-INC = whatever.hpp
+NAME = span
+INC = Span.hpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp \
+		Span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
