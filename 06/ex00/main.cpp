@@ -8,7 +8,6 @@ int main(int ac, char **av)
         {
             ScalarConverter::convert(av[1]);
         }
-        
     }
     else
         std::cout <<  "check the value" <<std::endl;

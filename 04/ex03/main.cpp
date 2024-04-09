@@ -10,19 +10,19 @@
 
 int main(void)
 {
-    IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
-    src->learnMateria(new Ice());
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
-    ICharacter* me = new Character("me");
-    AMateria* tmp;
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    tmp = src->createMateria("ctest");
-    me->equip(tmp);
-    // me->equip(NULL);
+    // IMateriaSource* src = new MateriaSource();
+    // src->learnMateria(new Ice());
+    // src->learnMateria(new Cure());
+    // src->learnMateria(new Ice());
+    // src->learnMateria(new Ice());
+    // src->learnMateria(new Cure());
+    // ICharacter* me = new Character("me");
+    // AMateria* tmp;
+    // tmp = src->createMateria("ice");
+    // me->equip(tmp);
+    // tmp = src->createMateria("ctest");
+    // me->equip(tmp);
+    // // me->equip(NULL);
     // me->equip(tmp);
     // me->equip(tmp);
     // me->equip(tmp);

@@ -4,7 +4,6 @@
 #include "AMateria.hpp"
 
 class ICharacter {
-
 public :
     virtual ~ICharacter() {};
     virtual std::string const & getName () const = 0;
