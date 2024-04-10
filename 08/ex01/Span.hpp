@@ -21,12 +21,14 @@ class Span
 
         class AddNumberFailException : public std::exception
         {
-            const char * what() const throw();
+            public :
+                const char * what() const throw();
         };
 
         class SpanException : public std::exception
         {
-            const char *what() const throw();
+            public :
+                const char *what() const throw();
         };
 
     private :
