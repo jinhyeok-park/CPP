@@ -12,11 +12,12 @@ class Span
         Span(unsigned int N);
         Span(const Span &other);
         ~Span();
-        unsigned int    size();
-        Span    &operator=(const Span &s);
-        void addNumber(int n);
-        unsigned int shortestSpan();
-        unsigned int longestSpan();
+
+        unsigned int    size() const;
+        Span            &operator=(const Span &s);
+        void            addNumber(int n);
+        unsigned int    shortestSpan() const;
+        unsigned int    longestSpan() const;
 
         class AddNumberFailException : public std::exception
         {
